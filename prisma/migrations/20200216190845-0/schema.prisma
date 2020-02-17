@@ -1,0 +1,16 @@
+
+datasource db {
+  provider = "postgresql"
+  url = "***"
+}
+
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Section {
+  id          String     @id       @default(cuid())
+  name        String 
+  image       String 
+}

@@ -1,0 +1,25 @@
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:SuperSecret@localhost:5432/mydb?schema=blog"
+}
+
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Section {
+  id          String     @id       @default(cuid())
+  name        String 
+  image       String 
+}
+
+model Article {
+  id          String     @id       @default(cuid())
+  title       String
+  description String
+  image       String
+  isActive    Boolean              @default(true) 
+  section     Section
+}
